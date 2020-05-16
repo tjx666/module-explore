@@ -25,11 +25,11 @@ module.exports = (() => {
       console.log(`1 + 1 = ${add(1, 1)}`);
     },
   };
-  
+
   // The module cache
   var __webpack_module_cache__ = {};
 
-  // The require function
+  // !: The require function
   function __webpack_require__(moduleId) {
     // Check if module is in cache
     if (__webpack_module_cache__[moduleId]) {
@@ -42,6 +42,7 @@ module.exports = (() => {
       exports: {},
     });
 
+    // !: 这里解释了为什么 this 等于 module.exports
     // Execute the module function
     __webpack_modules__[moduleId].call(
       module.exports,
@@ -50,6 +51,7 @@ module.exports = (() => {
       __webpack_require__
     );
 
+    // !: 导出模块最后拿到的是 module.exports，因此对 module.exports 赋值会覆盖 exports
     // Return the exports of the module
     return module.exports;
   }

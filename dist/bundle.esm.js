@@ -8,13 +8,16 @@
       __webpack_require__
     ) => {
       __webpack_require__.d(__webpack_exports__, {
+        // !: 默认导出可以理解为一个名为 default 的局部导出
         default: () => __WEBPACK_DEFAULT_EXPORT__,
+        // !: 局部导出是实时的，通过 getter 定义
         partExport: () => /* binding */ partExport,
       });
       function add(a, b) {
         return a + b;
       }
 
+      // !: 默认导出拿到永远是同步导出的内容
       const __WEBPACK_DEFAULT_EXPORT__ = add;
       var partExport = 666;
     },
@@ -36,6 +39,7 @@
     });
 
     // Execute the module function
+    // !: 不像 commonjs 绑定 this 为 module.exports
     __webpack_modules__[moduleId](module, module.exports, __webpack_require__);
 
     // Return the exports of the module
